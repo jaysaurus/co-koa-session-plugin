@@ -9,6 +9,8 @@
 
 # co-koa-session-plugin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jaysaurus/co-koa-session-plugin.svg)](https://greenkeeper.io/)
+
 koa-session plugin with support for mongoose within the [Co.Koa MVC](http://cokoajs.com) environment.
 
 This plugin (available in the [Co.Koa MVC](http://cokoajs.com) from version @0.17.0 onwards)  aims to consolidate [koa-session](https://npmjs/package/koa-session) and a modified implementation of [koa-session-mongoose](https://www.npmjs.com/package/koa-session-mongoose) into one easy-to-install plugin module; thereby enabling secure session management that is handled via a session collection in your MongoDB database.
