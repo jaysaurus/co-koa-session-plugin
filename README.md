@@ -6,7 +6,7 @@
 
 koa-session plugin with support for mongoose within the [Co.Koa MVC](http://cokoajs.com) environment.
 
-This plugin (available in the [Co.Koa MVC](http://cokoajs.com) from version @0.17.0 onwards)  aims to consolidate [koa-session](https://npmjs/package/koa-session) and a modified variation of [koa-session-mongoose](https://www.npmjs.com/package/koa-session-mongoose) into one easy-to-install module; thereby enabling secure session management that is handled via a session collection in your MongoDB database.
+This plugin (available in the [Co.Koa MVC](http://cokoajs.com) from version @0.17.0 onwards)  aims to consolidate [koa-session](https://npmjs/package/koa-session) and a modified implementation of [koa-session-mongoose](https://www.npmjs.com/package/koa-session-mongoose) into one easy-to-install plugin module; thereby enabling secure session management that is handled via a session collection in your MongoDB database.
 
 ## installation
 
@@ -54,3 +54,5 @@ async 'GET /session' (ctx) {
 ```
 
 for more information on sessions, please see: [koa-session](https://npmjs/package/koa-session).
+
+(thanks to @mjbondra for koa-session-mongoose)
