@@ -4,7 +4,7 @@
   "description": "koa-session integration with support for mongoose within the Co.Koa environment",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --config ./jest.config.js --coverage && cat ./coverage/lcov.info | coveralls",
     "test-watch": "nodemon --exec 'npm test'"
   },
   "repository": {
