@@ -1,0 +1,37 @@
+{
+  "name": "co-koa-session-plugin",
+  "version": "0.5.0",
+  "description": "koa-session integration with support for mongoose within the Co.Koa environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test-watch": "nodemon --exec 'npm test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaysaurus/co-koa-session-integration.git"
+  },
+  "keywords": [
+    "koa",
+    "cokoa",
+    "co.koa",
+    "co-koa",
+    "koa-session",
+    "session",
+    "mongoose"
+  ],
+  "author": "Jay Edwards <the.jaysaurus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaysaurus/co-koa-session-integration/issues"
+  },
+  "homepage": "https://github.com/jaysaurus/co-koa-session-integration#readme",
+  "dependencies": {
+    "echo-handler": "^1.8.2",
+    "koa-session": "^5.7.1",
+    "stampit": "^4.0.2"
+  },
+  "devDependencies": {
+    "jest": "^22.0.6"
+  }
+}
