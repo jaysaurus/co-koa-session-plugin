@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/jaysaurus/co-koa-session-plugin.svg?branch=master)](https://travis-ci.org/jaysaurus/co-koa-session-plugin)
-[![Coverage Status](https://coveralls.io/repos/github/jaysaurus/co-koa-session-plugin/badge.svg?branch=master)](https://coveralls.io/github/jaysaurus/co-koa-session-plugin?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/jaysaurus/co-koa-session-plugin/badge.svg?branch=master)](https://coveralls.io/github/jaysaurus/co-koa-session-plugin?branch=master) <a href="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin?targetFile=package.json"><img src="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin/badge.svg?targetFile=package.json" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin?targetFile=package.json" style="max-width:100%;"></a>
 
-[![Test for Vulnerabilities](https://snyk.io/test/github/jaysaurus/co-koa-session-plugin/badge.svg)](https://snyk.io/test/github/jaysaurus/co-koa-session-plugin)
+
 
 <a title="Co.Koa on github" href="https://jaysaurus.github.io/Co.Koa">
 <img alt="Co.Koa header" title="Co.Koa" style="margin: 0 15%; width: 70%" src="https://raw.githubusercontent.com/jaysaurus/Co.Koa/master/siteStrapCoKoa.png?sanitize=true" />
