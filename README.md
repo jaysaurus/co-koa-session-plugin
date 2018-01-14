@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/jaysaurus/co-koa-session-plugin.svg?branch=master)](https://travis-ci.org/jaysaurus/co-koa-session-plugin)
-[![Coverage Status](https://coveralls.io/repos/github/jaysaurus/co-koa-session-plugin/badge.svg?branch=master)](https://coveralls.io/github/jaysaurus/co-koa-session-plugin?branch=master) <a href="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin?targetFile=package.json"><img src="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin/badge.svg?targetFile=package.json" alt="Test for Vulnerabilities" data-canonical-src="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin?targetFile=package.json" style="max-width:100%;"></a>
-
+[![Coverage Status](https://coveralls.io/repos/github/jaysaurus/co-koa-session-plugin/badge.svg?branch=master)](https://coveralls.io/github/jaysaurus/co-koa-session-plugin?branch=master) <a href="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin?targetFile=package.json"><img src="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin/badge.svg?targetFile=package.json" alt="Test for Vulnerabilities" data-canonical-src="https://snyk.io/test/github/jaysaurus/co-koa-session-plugin?targetFile=package.json" style="max-width:100%;"></a> [![Greenkeeper badge](https://badges.greenkeeper.io/jaysaurus/co-koa-session-plugin.svg)](https://greenkeeper.io/)
 
 
 <a title="Co.Koa on github" href="https://jaysaurus.github.io/Co.Koa">
@@ -8,8 +7,6 @@
 </a>
 
 # co-koa-session-plugin
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/jaysaurus/co-koa-session-plugin.svg)](https://greenkeeper.io/)
 
 koa-session plugin with support for mongoose within the [Co.Koa MVC](http://cokoajs.com) environment.
 
