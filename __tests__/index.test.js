@@ -46,7 +46,7 @@ describe('general integration tests for co-koa-session-plugin', () => {
       }
     }
   }
-  const plugin = SessionPlugin();
+  let plugin = SessionPlugin({ keys: ['ref'] });
   let sessionMock = null;
   plugin.init({ use: session => {
     sessionMock = session.getSessionSpy();
@@ -57,6 +57,11 @@ describe('general integration tests for co-koa-session-plugin', () => {
     expect(schemaCalled[1]).toBe('data');
     expect(schemaCalled[2]).toBe('updatedAt');
   });
+
+  plugin = SessionPlugin();
+  plugin.init({ use: session => {
+    sessionMock = session.getSessionSpy();
+  } }, $);
 
   test('sessionMock get returns mock data via the mock above', async () => {
     const result = await sessionMock[0].get()
