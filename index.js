@@ -5,16 +5,16 @@ const SessionStore = require('./lib/SessionStore');
 
 module.exports = stampit({
   init ({
+    keys = null,
     name = 'Session',
     expires = 86400 // 1 day is the default
   }) {
-    Object.assign(this, {
-      init (app, $) {
-        app.use(
-          session(
-            { store: SessionStore({ $, name, expires, mongoose: $.env.mongoose }) },
-            app));
-      }
-    });
+    this.init = function (app, $) {
+      if (keys) app.keys = keys;
+      app.use(
+        session(
+          { store: SessionStore({ $, name, expires, mongoose: $.env.mongoose }) },
+          app));
+    }
   }
 });

@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>23/23</span>
+        <span class='fraction'>25/25</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>23/23</span>
+        <span class='fraction'>25/25</span>
       </div>
     </div>
   </div>
@@ -111,8 +111,7 @@
 66
 67
 68
-69
-70</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+69</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -126,12 +125,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,20 +140,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -164,7 +163,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -176,7 +175,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,44 +208,43 @@ module.exports = stampit({
       }
     };
 &nbsp;
-    const updatedAt = { ...schema.updatedAt, expires };
-    this.session = mongoose.model(name, new mongoose.Schema({ ...schema, updatedAt }));
+    const updatedAt = Object.assign({}, schema.updatedAt, expires);
+    this.session = mongoose.model(name, new mongoose.Schema(Object.assign({}, schema, updatedAt)));
 &nbsp;
-    Object.assign(this, {
-      async destroy (key) {
-        try {
-          const { session } = this;
-          return session.remove({ key });
-        } catch (e) {
-          echo.throw({ name: 'InvalidSessionException', message: 'error' }, 'destroy', e.message);
-        }
-      },
 &nbsp;
-      async get (key) {
-        try {
-          const { session } = this;
-          const { data } = await session.findOne({ key }) || { data: {} };
-          return data;
-        } catch (e) {
-          echo.throw({ name: 'InvalidSessionException', message: 'error' }, 'get', e.message);
-        }
-      },
-&nbsp;
-      async set (key, data, maxAge, { changed, rolling }) {
-        try {
-          if (changed || rolling) {
-            const { session } = this;
-            await session.findOneAndUpdate(
-              { key },
-              { key, data, updatedAt: new Date() },
-              { upsert: true, safe: true });
-          }
-          return data;
-        } catch (e) {
-          echo.throw({ name: 'InvalidSessionException', message: 'error' }, 'set', e.message);
-        }
+    this.destroy = async function (key) {
+      try {
+        const { session } = this;
+        return session.remove({ key });
+      } catch (e) {
+        echo.throw({ name: 'InvalidSessionException', message: 'error' }, 'destroy', e.message);
       }
-    });
+    };
+&nbsp;
+    this.get = async function (key) {
+      try {
+        const { session } = this;
+        const { data } = await session.findOne({ key }) || { data: {} };
+        return data;
+      } catch (e) {
+        echo.throw({ name: 'InvalidSessionException', message: 'error' }, 'get', e.message);
+      }
+    };
+&nbsp;
+    this.set = async function (key, data, maxAge, { changed, rolling }) {
+      try {
+        if (changed || rolling) {
+          const { session } = this;
+          await session.findOneAndUpdate(
+            { key },
+            { key, data, updatedAt: new Date() },
+            { upsert: true, safe: true });
+        }
+        return data;
+      } catch (e) {
+        echo.throw({ name: 'InvalidSessionException', message: 'error' }, 'set', e.message);
+      }
+    };
   }
 });
 &nbsp;</pre></td></tr>
@@ -256,7 +253,7 @@ module.exports = stampit({
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Mar 18 2018 22:54:39 GMT+0000 (GMT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Mar 18 2018 23:00:02 GMT+0000 (GMT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

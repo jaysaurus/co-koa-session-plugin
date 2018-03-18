@@ -41,6 +41,7 @@ The `SessionPlugin` can optionally be called with a configuration object.  The p
 const coKoa =
   CoKoa(__dirname).launch(
     SessionPlugin({
+      keys: ... // (optional) supply a reference to an array of keys to be used by app.keys, will defer to Co.Koa's defaults if keys are not supplied.
       name: ... // the name of the collection (default is "Session")
       expires: ... // the amount of time in seconds until the session expires
     }));
