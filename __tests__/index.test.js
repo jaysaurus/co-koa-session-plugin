@@ -46,9 +46,10 @@ describe('general integration tests for co-koa-session-plugin', () => {
       }
     }
   }
+  console.log('here')
   let plugin = SessionPlugin({ keys: ['ref'] });
   let sessionMock = null;
-  plugin.init({ use: session => {
+  plugin($.env.mongoose).init({ use: session => {
     sessionMock = session.getSessionSpy();
   } }, $);
 
@@ -59,7 +60,7 @@ describe('general integration tests for co-koa-session-plugin', () => {
   });
 
   plugin = SessionPlugin();
-  plugin.init({ use: session => {
+  plugin($.env.mongoose).init({ use: session => {
     sessionMock = session.getSessionSpy();
   } }, $);
 

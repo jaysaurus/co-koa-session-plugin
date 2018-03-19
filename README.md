@@ -8,7 +8,7 @@
 
 # co-koa-session-plugin
 
-### Warning, doesn't presently work with Co.Koa 1.5.0!
+**Note** as of co-koa-core@1.5.0 and higher, this plugin now requires [co-koa-mongoose-plugin](https://npmjs.com/co-koa-mongoose-plugin)@1.1.0 or higher
 
 koa-session plugin with support for mongoose within the [Co.Koa MVC](http://cokoajs.com) environment.
 
@@ -22,29 +22,31 @@ add co-koa-session-plugin to a Co.Koa project instance via:
 npm i co-koa-session-plugin --save
 ```
 
-within your app.js add the co-koa-session-plugin as a requirement and pass the SessionPlugin call as below:
+within your app.js ensure you have a connection setup to [co-koa-mongoose-plugin](https://npmjs.com/co-koa-mongoose-plugin). add the co-koa-session-plugin as a requirement and pass the SessionPlugin call to the MongoosePlugin as below:
 
 ```javascript
 const fs = require('fs');
+const MongoosePlugin = require('co-koa-mongoose-plugin');
 const SessionPlugin = require('co-koa-session-plugin');
 
 if (fs.existsSync('./node_modules')) {
   const CoKoa = require('co-koa-core');
   try {
-    const coKoa = CoKoa(__dirname).launch(SessionPlugin()); // <= HERE!
+    const coKoa =
+      CoKoa(__dirname)
+        .launch(MongoosePlugin({ plugins: [SessionPlugin()] })); // <= HERE!
     ...
 ```
 
 The `SessionPlugin` can optionally be called with a configuration object.  The properties of this object are described below:
 
 ```javascript
-const coKoa =
-  CoKoa(__dirname).launch(
-    SessionPlugin({
-      keys: ... // (optional) supply a reference to an array of keys to be used by app.keys, will defer to Co.Koa's defaults if keys are not supplied.
-      name: ... // the name of the collection (default is "Session")
-      expires: ... // the amount of time in seconds until the session expires
-    }));
+...
+SessionPlugin({
+  keys: ... // (optional) supply a reference to an array of keys to be used by app.keys, will defer to Co.Koa's defaults if keys are not supplied.
+  name: ... // the name of the collection (default is "Session")
+  expires: ... // the amount of time in seconds until the session expires
+}));
 ```
 
 ## Use

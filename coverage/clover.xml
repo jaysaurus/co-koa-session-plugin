@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1521414002332" clover="3.2.0">
-  <project timestamp="1521414002333" name="All files">
-    <metrics statements="32" coveredstatements="32" conditionals="12" coveredconditionals="12" methods="4" coveredmethods="4" elements="48" coveredelements="48" complexity="0" loc="32" ncloc="32" packages="2" files="2" classes="2">
+<coverage generated="1521461892871" clover="3.2.0">
+  <project timestamp="1521461892871" name="All files">
+    <metrics statements="33" coveredstatements="33" conditionals="13" coveredconditionals="13" methods="5" coveredmethods="5" elements="51" coveredelements="51" complexity="0" loc="33" ncloc="33" packages="2" files="2" classes="2">
       <package name="co-koa-session-plugin">
-        <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
-        <file name="index.js" path="/home/jay/codeBase/npm/co-koa-session-plugin/index.js">
-          <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <file name="index.js" path="/home/jay/codeBase/node/co-koa-session-plugin/index.js">
+          <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
           <line num="4" count="1" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
+          <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="11" count="2" type="stmt"/>
           <line num="12" count="2" type="stmt"/>
-          <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="14" count="2" type="stmt"/>
+          <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="15" count="2" type="stmt"/>
         </file>
       </package>
       <package name="co-koa-session-plugin.lib">
         <metrics statements="25" coveredstatements="25" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
-        <file name="SessionStore.js" path="/home/jay/codeBase/npm/co-koa-session-plugin/lib/SessionStore.js">
+        <file name="SessionStore.js" path="/home/jay/codeBase/node/co-koa-session-plugin/lib/SessionStore.js">
           <metrics statements="25" coveredstatements="25" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
