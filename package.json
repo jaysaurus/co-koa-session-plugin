@@ -1,6 +1,6 @@
 {
   "name": "co-koa-session-plugin",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "koa-session integration with support for mongoose within the Co.Koa environment",
   "main": "index.js",
   "scripts": {
