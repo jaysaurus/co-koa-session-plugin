@@ -28,7 +28,7 @@
   "homepage": "https://github.com/jaysaurus/co-koa-session-integration#readme",
   "dependencies": {
     "echo-handler": "^1.8.2",
-    "koa-session": "^5.7.1",
+    "koa-session": "^5.8.2",
     "stampit": "^4.0.2"
   },
   "devDependencies": {
